@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "inquirer": "^9.1.1",
+    "jest": "^29.0.1"
+  },
+  "name": "sobczyksteamgenerator",
+  "description": "HTML Team Profile Generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sobe1290/SobczyksTeamGenerator.git"
+  },
+  "author": "Patrick Sobczyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sobe1290/SobczyksTeamGenerator/issues"
+  },
+  "homepage": "https://github.com/sobe1290/SobczyksTeamGenerator#readme"
+}
