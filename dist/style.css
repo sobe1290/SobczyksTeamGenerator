@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(158, 170, 155);
+}
+.header {
+    padding: 15px;
+  text-align: center;
+  background: rgb(86, 202, 86);
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+}
+.allCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.card {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 200px;
+    border-radius: 25px;
+    margin:5px;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    text-align: center;
+  }
+
+  .topHalf {
+    background-color: rgb(86, 202, 86);
+  }
+
+  h2 {
+    text-align: center;
+  }
+  h4 {
+    font-size: 25px;
+  }
+
+  p {
+    font-size: 18px;
+  }
