@@ -56,7 +56,7 @@ const htmlInternCardElement = `
     <p>${answers.Member_School}</p>
     ${htmlEmployeeCardElementLower}`
 
-let cardArray = [];
+let cardArray = [htmlManagerCardElement];
 
 
 const htmlString = `${htmlHeadTag}${htmlBodyContentOpenTag}${cardArray}${htmlBodyContentClosingTag}`
