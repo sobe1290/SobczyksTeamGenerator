@@ -100,6 +100,7 @@ function nextRole (answers) {
   };
 };
 
+
 function engineerAsk () {
   inquirer
     .prompt(engineerQuestions)
@@ -108,6 +109,8 @@ function engineerAsk () {
       nextRole(answers);
     });
 };
+
+// Need to create generateEngineerCard Function to add to html array
 
 function internAsk () {
   inquirer
@@ -118,9 +121,12 @@ function internAsk () {
     });
 };
 
+// Need to create generateInternCard Function to add to html array
 
 
-// Need to wrap all in an async/await
+// Need to wrap all in an async/await? Or will sequence work?
+
+// Need to create generateManagerCard Function to add to html array
 
 inquirer
   .prompt(managerQuestions)
