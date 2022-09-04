@@ -1,5 +1,5 @@
-const inquirer = require('inquirer');
-const generateHTML = require('./src/generateHTML');
+import inquirer from './node_modules/inquirer/lib/inquirer.js';
+import {generateHTML} from './src/generateHTML.js';
 
 
 const managerQuestions = [
@@ -7,10 +7,10 @@ const managerQuestions = [
     {
       type: 'input',
       name: 'Manager_Name',
-      message: 'What is the name of the team member?',
+      message: 'What is the name of the Manager of the Team?',
       },
     {
-      type: 'number',
+      type: 'input',
       name: 'Member_Id',
       message: 'What is the id number of the team member?',
       },
@@ -36,17 +36,17 @@ const engineerQuestions = [
   {
     type: 'input',
     name: 'Engineer_Name',
-    message: 'What is the name of the team member?',
+    message: 'What is the name of this Engineer?',
     },
   {
-    type: 'number',
+    type: 'input',
     name: 'Member_Id',
-    message: 'What is the id number of the team member?',
+    message: 'What is the id number of this Engineer?',
     },
   {
     type: 'input',
     name: 'Member_Email',
-    message: 'What is the Email address of the team member?',
+    message: 'What is the Email address of this Engineer?',
     },
   {
     type: 'input',
@@ -57,7 +57,7 @@ const engineerQuestions = [
     type: 'list',
     name: 'Member_Role',
     message: 'What is the role of the team member you wish to add?',
-    choices: ['Engineer','Intern', 'None']
+    choices: ['Engineer','Intern', 'None, Exit and Create HTML.']
     },
 ];
 
@@ -68,25 +68,25 @@ const internQuestions = [
     message: 'What is the name of the Intern?',
     },
   {
-    type: 'number',
+    type: 'input',
     name: 'Member_Id',
-    message: 'What is the id number of the team member?',
+    message: 'What is the id number of this Intern?',
     },
   {
     type: 'input',
     name: 'Member_Email',
-    message: 'What is the Email address of the team member?',
+    message: 'What is the Email address of this Intern?',
     },
   {
     type: 'input',
     name: 'Member_School',
-    message: 'What is the School of this Student?',
+    message: 'What is the School of this Intern?',
   },
   {
     type: 'list',
     name: 'Member_Role',
     message: 'What is the role of the team member you wish to add?',
-    choices: ['Engineer','Intern', 'None']
+    choices: ['Engineer','Intern', 'None, Exit and Create HTML.']
     },
 ];
 
@@ -96,7 +96,7 @@ function nextRole (answers) {
   } else if (answers.Member_Role === 'Intern'){
     internAsk();
   } else {
-    return;
+    generateHTML(answers);
   };
 };
 
@@ -105,33 +105,39 @@ function engineerAsk () {
   inquirer
     .prompt(engineerQuestions)
     .then(answers => {
-      generateEngineerCard();
-      nextRole(answers);
+      generateEngineerCard(answers);
+      nextRole(answers);      
     });
 };
 
-// Need to create generateEngineerCard Function to add to html array
+function generateEngineerCard (answers) {
+  console.log(answers.Engineer_Name, answers.Member_Id, answers.Member_Email, answers.Member_Github, answers.Member_Role)
+}
 
 function internAsk () {
   inquirer
     .prompt(internQuestions)
     .then(answers => {
-      generateInternCard();
+      generateInternCard(answers);
       nextRole(answers);
     });
 };
 
-// Need to create generateInternCard Function to add to html array
 
+function generateInternCard (answers) {
+  console.log(answers.Intern_Name, answers.Member_Id, answers.Member_Email, answers.Member_School, answers.Member_Role)
+}
 
 // Need to wrap all in an async/await? Or will sequence work?
 
-// Need to create generateManagerCard Function to add to html array
+
+function generateManagerCard (answers) {
+  console.log(answers.Manager_Name, answers.Member_Id, answers.Member_Email, answers.Member_Office, answers.Member_Role)
+}
 
 inquirer
   .prompt(managerQuestions)
   .then(answers => {
-    generateManagerCard();
-    nextRole(answers);
-    generateHTML();    
+    generateManagerCard(answers);
+    nextRole(answers);    
   });
