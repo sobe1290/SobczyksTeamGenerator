@@ -1,7 +1,6 @@
 import inquirer from './node_modules/inquirer/lib/inquirer.js';
 import {generateHTML} from './src/generateHTML.js';
 
-
 const managerQuestions = [
   
     {
@@ -100,7 +99,6 @@ function nextRole (answers) {
   };
 };
 
-
 function engineerAsk () {
   inquirer
     .prompt(engineerQuestions)
@@ -123,13 +121,9 @@ function internAsk () {
     });
 };
 
-
 function generateInternCard (answers) {
   console.log(answers.Intern_Name, answers.Member_Id, answers.Member_Email, answers.Member_School, answers.Member_Role)
 }
-
-// Need to wrap all in an async/await? Or will sequence work?
-
 
 function generateManagerCard (answers) {
   console.log(answers.Manager_Name, answers.Member_Id, answers.Member_Email, answers.Member_Office, answers.Member_Role)
