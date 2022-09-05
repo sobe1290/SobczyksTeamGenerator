@@ -134,7 +134,12 @@ function generateManagerCard (answers) {
   let email = answers.Member_Email;
   let office = answers.Member_Office;
 
-new Manager(name, id, email, office);
+const manager = new Manager(name, id, email, office);
+
+manager.getName();
+manager.getId();
+manager.getEmail();
+manager.getOfficeNumber();
 
 }
 
