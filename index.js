@@ -1,6 +1,7 @@
 import inquirer from './node_modules/inquirer/lib/inquirer.js';
 import {generateHTML} from './src/generateHTML.js';
 import Manager from './lib/Manager.js';
+import Employee from './lib/Employee.js';
 
 const managerQuestions = [
   
@@ -132,7 +133,7 @@ function generateManagerCard (answers) {
   let id = answers.Member_Id;
   let email = answers.Member_Email;
   let office = answers.Member_Office;
-  
+
 new Manager(name, id, email, office);
 
 }
