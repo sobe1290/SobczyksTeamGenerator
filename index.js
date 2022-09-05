@@ -127,10 +127,13 @@ function generateInternCard (answers) {
 }
 
 function generateManagerCard (answers) {
-  console.log(answers.Member_Name);
 
-  //Cannot get answers to pass into the manager class here
-new Manager(Member_Name, Member_Id, Member_Email, Member_Office);
+  let name = answers.Member_Name;
+  let id = answers.Member_Id;
+  let email = answers.Member_Email;
+  let office = answers.Member_Office;
+  
+new Manager(name, id, email, office);
 
 }
 
