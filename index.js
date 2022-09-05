@@ -1,12 +1,13 @@
 import inquirer from './node_modules/inquirer/lib/inquirer.js';
 import {generateHTML} from './src/generateHTML.js';
+import Manager from './lib/Manager.js';
 
 const managerQuestions = [
   
     {
       type: 'input',
-      name: 'Manager_Name',
-      message: 'What is the name of the Manager of the Team?',
+      name: 'Member_Name',
+      message: 'What is the name of this team member?',
       },
     {
       type: 'input',
@@ -34,8 +35,8 @@ const managerQuestions = [
 const engineerQuestions = [
   {
     type: 'input',
-    name: 'Engineer_Name',
-    message: 'What is the name of this Engineer?',
+    name: 'Member_Name',
+    message: 'What is the name of this team member?',
     },
   {
     type: 'input',
@@ -63,8 +64,8 @@ const engineerQuestions = [
 const internQuestions = [
   {
     type: 'input',
-    name: 'Intern_Name',
-    message: 'What is the name of the Intern?',
+    name: 'Member_Name',
+    message: 'What is the name of this team member?',
     },
   {
     type: 'input',
@@ -126,7 +127,11 @@ function generateInternCard (answers) {
 }
 
 function generateManagerCard (answers) {
-  console.log(answers.Manager_Name, answers.Member_Id, answers.Member_Email, answers.Member_Office, answers.Member_Role)
+  console.log(answers.Member_Name);
+
+  //Cannot get answers to pass into the manager class here
+new Manager(Member_Name, Member_Id, Member_Email, Member_Office);
+
 }
 
 inquirer
