@@ -6,7 +6,7 @@ export const htmlHeadTag = `
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./style.css">
-</head>`
+</head>`;
 
 export const htmlBodyContentOpenTag = `
 <body>
@@ -15,31 +15,26 @@ export const htmlBodyContentOpenTag = `
 <h2>My Team</h2>
 </div>
 
-<div class="allCards">`
+<div class="allCards">`;
 
 
 export const htmlBodyContentClosingTag = `    
 </div>
 
 </body>
-</html>`    
+</html>`;
 
 export const cardArray = [];
 
-
-
 export function generateHTML () {
-    let stringyCards = cardArray.join();
+  let stringyCards = cardArray.join();
+  const htmlString = `${htmlHeadTag}${htmlBodyContentOpenTag}${stringyCards}${htmlBodyContentClosingTag}`; 
 
-    const htmlString = `${htmlHeadTag}${htmlBodyContentOpenTag}${stringyCards}${htmlBodyContentClosingTag}`;
-
-    
-
-    fs.writeFile('./dist/generated.html', htmlString, (err) => {
-        if (err) 
-         console.error(err); 
-        else {
-          console.log('Success! Check the /dist folder for generated.html')
-          }
-});
+  fs.writeFile('./dist/generated.html', htmlString, (err) => {
+    if (err) 
+      console.error(err); 
+    else {
+      console.log('Success! Check the /dist folder for generated.html');
+    };
+  });
 };

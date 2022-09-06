@@ -5,34 +5,33 @@ import Intern from './lib/Intern.js';
 import Engineer from './lib/Engineer.js';
 
 
-const managerQuestions = [
-  
-    {
-      type: 'input',
-      name: 'Member_Name',
-      message: 'What is the name of the Manager of this team?',
-      },
-    {
-      type: 'input',
-      name: 'Member_Id',
-      message: 'What is the id number of the team member?',
-      },
-    {
-      type: 'input',
-      name: 'Member_Email',
-      message: 'What is the Email address of the team member?',
-      },
-    {
-      type: 'input',
-      name: 'Member_Office',
-      message: 'What is the office number of this manager?',
+const managerQuestions = [  
+  {
+    type: 'input',
+    name: 'Member_Name',
+    message: 'What is the name of the Manager of this team?',
     },
-    {
-      type: 'list',
-      name: 'Member_Role',
-      message: 'What is the role of the team member you wish to add?',
-      choices: ['Engineer','Intern', 'None']
-      },
+  {
+    type: 'input',
+    name: 'Member_Id',
+    message: 'What is the id number of the Manager of this team?',
+    },
+  {
+    type: 'input',
+    name: 'Member_Email',
+    message: 'What is the Email address of the Manager of this Team?',
+    },
+  {
+    type: 'input',
+    name: 'Member_Office',
+    message: 'What is the office number of the Manager of this Team?',
+  },
+  {
+    type: 'list',
+    name: 'Member_Role',
+    message: 'What is the role of the team member you wish to add?',
+    choices: ['Engineer','Intern', 'None']
+    },
 ];
 
 const engineerQuestions = [
@@ -112,33 +111,6 @@ function engineerAsk () {
     });
 };
 
-function generateEngineerCard (answers) {
-  let name = answers.Member_Name;
-  let id = answers.Member_Id;
-  let email = answers.Member_Email;
-  let github = answers.Member_Github;
-
-const engineer = new Engineer(name, id, email, github);
-
-const htmlEngineerCardElement = `
-<div class="card">
-<div class="container">
-    <div class="topHalf">
-        <h4>${engineer.getName()}</h4>
-        <p>Role:${engineer.getRole()}</p>
-    </div>
-    <div class="bottomHalf">
-        <p>ID: ${engineer.getId()}</p>
-        <p><a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
-        <p><a href="https://github.com/${engineer.getGithub()}" target="_blank">Github Link</a></p>
-    </div>    
-</div>
-</div>`
-
-
-genHTML.cardArray.push(htmlEngineerCardElement);
-}
-
 function internAsk () {
   inquirer
     .prompt(internQuestions)
@@ -148,64 +120,74 @@ function internAsk () {
     });
 };
 
+function generateEngineerCard (answers) {
+  let name = answers.Member_Name;
+  let id = answers.Member_Id;
+  let email = answers.Member_Email;
+  let github = answers.Member_Github;
+  const engineer = new Engineer(name, id, email, github);
+  const htmlEngineerCardElement = `
+  <div class="card">
+  <div class="container">
+      <div class="topHalf">
+          <h4>${engineer.getName()}</h4>
+          <p>Role:${engineer.getRole()}</p>
+      </div>
+      <div class="bottomHalf">
+          <p>ID: ${engineer.getId()}</p>
+          <p><a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
+          <p><a href="https://github.com/${engineer.getGithub()}" target="_blank">Github Link</a></p>
+      </div>    
+  </div>
+  </div>`;
+  genHTML.cardArray.push(htmlEngineerCardElement);
+};
+
 function generateInternCard (answers) {
   let name = answers.Member_Name;
   let id = answers.Member_Id;
   let email = answers.Member_Email;
   let school = answers.Member_School;
-
-const intern = new Intern(name, id, email, school);
-
-const htmlInternCardElement = `
-<div class="card">
-<div class="container">
-    <div class="topHalf">
-        <h4>${intern.getName()}</h4>
-        <p>Role:${intern.getRole()}</p>
-    </div>
-    <div class="bottomHalf">
-        <p>ID: ${intern.getId()}</p>
-        <p><a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
-        <p>${intern.getSchool()}</p>
-    </div>    
-</div>
-</div>`
-
-
-genHTML.cardArray.push(htmlInternCardElement);
-
-}
+  const intern = new Intern(name, id, email, school);
+  const htmlInternCardElement = `
+  <div class="card">
+  <div class="container">
+      <div class="topHalf">
+          <h4>${intern.getName()}</h4>
+          <p>Role:${intern.getRole()}</p>
+      </div>
+      <div class="bottomHalf">
+          <p>ID: ${intern.getId()}</p>
+          <p><a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
+          <p>${intern.getSchool()}</p>
+      </div>    
+  </div>
+  </div>`;
+  genHTML.cardArray.push(htmlInternCardElement);
+};
 
 function generateManagerCard (answers) {
-
   let name = answers.Member_Name;
   let id = answers.Member_Id;
   let email = answers.Member_Email;
   let office = answers.Member_Office;
-
-const manager = new Manager(name, id, email, office);
-
-const htmlManagerCardElement = `
-<div class="card">
-    <div class="container">
-        <div class="topHalf">
-            <h4>${manager.getName()}</h4>
-            <p>Role:${manager.getRole()}</p>
-        </div>
-        <div class="bottomHalf">
-            <p>ID: ${manager.getId()}</p>
-            <p><a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
-            <p>Office Number ${manager.getOfficeNumber()}</p>
-        </div>    
-    </div>
-</div>`
-
-
-
-
-genHTML.cardArray.push(htmlManagerCardElement);
-
-}
+  const manager = new Manager(name, id, email, office);
+  const htmlManagerCardElement = `
+  <div class="card">
+      <div class="container">
+          <div class="topHalf">
+              <h4>${manager.getName()}</h4>
+              <p>Role:${manager.getRole()}</p>
+          </div>
+          <div class="bottomHalf">
+              <p>ID: ${manager.getId()}</p>
+              <p><a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
+              <p>Office Number ${manager.getOfficeNumber()}</p>
+          </div>    
+      </div>
+  </div>`;
+  genHTML.cardArray.push(htmlManagerCardElement);
+};
 
 inquirer
   .prompt(managerQuestions)
