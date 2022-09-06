@@ -1,14 +1,16 @@
 import inquirer from './node_modules/inquirer/lib/inquirer.js';
 import {generateHTML} from './src/generateHTML.js';
 import Manager from './lib/Manager.js';
-import Employee from './lib/Employee.js';
+import Intern from './lib/Intern.js';
+import Engineer from './lib/Engineer.js';
+
 
 const managerQuestions = [
   
     {
       type: 'input',
       name: 'Member_Name',
-      message: 'What is the name of this team member?',
+      message: 'What is the name of the Manager of this team?',
       },
     {
       type: 'input',
@@ -37,7 +39,7 @@ const engineerQuestions = [
   {
     type: 'input',
     name: 'Member_Name',
-    message: 'What is the name of this team member?',
+    message: 'What is the name of this Engineer?',
     },
   {
     type: 'input',
@@ -66,7 +68,7 @@ const internQuestions = [
   {
     type: 'input',
     name: 'Member_Name',
-    message: 'What is the name of this team member?',
+    message: 'What is the name of this Intern?',
     },
   {
     type: 'input',
@@ -111,7 +113,17 @@ function engineerAsk () {
 };
 
 function generateEngineerCard (answers) {
-  console.log(answers.Engineer_Name, answers.Member_Id, answers.Member_Email, answers.Member_Github, answers.Member_Role)
+  let name = answers.Member_Name;
+  let id = answers.Member_Id;
+  let email = answers.Member_Email;
+  let github = answers.Member_Github;
+
+const engineer = new Engineer(name, id, email, github);
+
+engineer.getName();
+engineer.getId();
+engineer.getEmail();
+engineer.getGithub();
 }
 
 function internAsk () {
@@ -124,7 +136,18 @@ function internAsk () {
 };
 
 function generateInternCard (answers) {
-  console.log(answers.Intern_Name, answers.Member_Id, answers.Member_Email, answers.Member_School, answers.Member_Role)
+  let name = answers.Member_Name;
+  let id = answers.Member_Id;
+  let email = answers.Member_Email;
+  let school = answers.Member_School;
+
+const intern = new Intern(name, id, email, school);
+
+intern.getName();
+intern.getId();
+intern.getEmail();
+intern.getSchool();
+
 }
 
 function generateManagerCard (answers) {
