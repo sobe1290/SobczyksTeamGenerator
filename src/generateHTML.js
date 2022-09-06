@@ -1,67 +1,45 @@
-// const fs = require('fs');
+import * as fs from 'fs';
 
-// const htmlHeadTag = `
-// <!DOCTYPE html>
-// <html>
-// <head>
-// <meta name="viewport" content="width=device-width, initial-scale=1">
-// <link rel="stylesheet" href="./style.css">
-// </head>`
+export const htmlHeadTag = `
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./style.css">
+</head>`
 
-// const htmlBodyContentOpenTag = `
-// <body>
+export const htmlBodyContentOpenTag = `
+<body>
 
-// <div class="header">  
-// <h2>My Team</h2>
-// </div>
+<div class="header">  
+<h2>My Team</h2>
+</div>
 
-// <div class="allCards">`
-
-
-// const htmlBodyContentClosingTag = `    
-// </div>
-
-// </body>
-// </html>`
-
-// const htmlEmployeeCardElementUpper = `
-// <div class="card">
-//     <div class="container">
-//         <div class="topHalf">
-//             <h4>${answers.Member_Name}</h4>
-//             <p>Role:${answers.Member_Role}</p>
-//         </div>
-//         <div class="bottomHalf">
-//             <p>ID: ${answers.Member_Id}</p>
-//             <p><a href="mailto:${answers.Member_Email}">${answers.Member_Email}</a></p>`
-
-// const htmlEmployeeCardElementLower = `            
-//         </div>    
-//     </div>
-// </div>`
-
-// const htmlManagerCardElement = `
-//     ${htmlEmployeeCardElementUpper}
-//     <p>Office Number ${answers.Member_Office}</p>
-//     ${htmlEmployeeCardElementLower}`
+<div class="allCards">`
 
 
-// const htmlEngineerCardElement = `
-//     ${htmlEmployeeCardElementUpper}
-//     <p><a href="https://github.com/${answers.Member_Github}" target="_blank">Github Link</a></p>
-//     ${htmlEmployeeCardElementLower}`
+export const htmlBodyContentClosingTag = `    
+</div>
 
-// const htmlInternCardElement = `
-//     ${htmlEmployeeCardElementUpper}
-//     <p>${answers.Member_School}</p>
-//     ${htmlEmployeeCardElementLower}`
+</body>
+</html>`    
 
-// let cardArray = [htmlManagerCardElement];
+export const cardArray = [];
 
-
-// const htmlString = `${htmlHeadTag}${htmlBodyContentOpenTag}${cardArray}${htmlBodyContentClosingTag}`
 
 
 export function generateHTML () {
-    console.log("the HTML is being created")
-}
+    let stringyCards = cardArray.join();
+
+    const htmlString = `${htmlHeadTag}${htmlBodyContentOpenTag}${stringyCards}${htmlBodyContentClosingTag}`;
+
+    
+
+    fs.writeFile('./dist/generated.html', htmlString, (err) => {
+        if (err) 
+         console.error(err); 
+        else {
+          console.log('Success! Check the /dist folder for generated.html')
+          }
+});
+};

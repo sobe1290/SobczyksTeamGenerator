@@ -1,5 +1,5 @@
 import inquirer from './node_modules/inquirer/lib/inquirer.js';
-import {generateHTML} from './src/generateHTML.js';
+import * as genHTML from './src/generateHTML.js';
 import Manager from './lib/Manager.js';
 import Intern from './lib/Intern.js';
 import Engineer from './lib/Engineer.js';
@@ -99,7 +99,7 @@ function nextRole (answers) {
   } else if (answers.Member_Role === 'Intern'){
     internAsk();
   } else {
-    generateHTML(answers);
+    genHTML.generateHTML(answers);
   };
 };
 
@@ -120,10 +120,23 @@ function generateEngineerCard (answers) {
 
 const engineer = new Engineer(name, id, email, github);
 
-engineer.getName();
-engineer.getId();
-engineer.getEmail();
-engineer.getGithub();
+const htmlEngineerCardElement = `
+<div class="card">
+<div class="container">
+    <div class="topHalf">
+        <h4>${engineer.getName()}</h4>
+        <p>Role:${engineer.getRole()}</p>
+    </div>
+    <div class="bottomHalf">
+        <p>ID: ${engineer.getId()}</p>
+        <p><a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
+        <p><a href="https://github.com/${engineer.getGithub()}" target="_blank">Github Link</a></p>
+    </div>    
+</div>
+</div>`
+
+
+genHTML.cardArray.push(htmlEngineerCardElement);
 }
 
 function internAsk () {
@@ -143,10 +156,23 @@ function generateInternCard (answers) {
 
 const intern = new Intern(name, id, email, school);
 
-intern.getName();
-intern.getId();
-intern.getEmail();
-intern.getSchool();
+const htmlInternCardElement = `
+<div class="card">
+<div class="container">
+    <div class="topHalf">
+        <h4>${intern.getName()}</h4>
+        <p>Role:${intern.getRole()}</p>
+    </div>
+    <div class="bottomHalf">
+        <p>ID: ${intern.getId()}</p>
+        <p><a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
+        <p>${intern.getSchool()}</p>
+    </div>    
+</div>
+</div>`
+
+
+genHTML.cardArray.push(htmlInternCardElement);
 
 }
 
@@ -159,10 +185,25 @@ function generateManagerCard (answers) {
 
 const manager = new Manager(name, id, email, office);
 
-manager.getName();
-manager.getId();
-manager.getEmail();
-manager.getOfficeNumber();
+const htmlManagerCardElement = `
+<div class="card">
+    <div class="container">
+        <div class="topHalf">
+            <h4>${manager.getName()}</h4>
+            <p>Role:${manager.getRole()}</p>
+        </div>
+        <div class="bottomHalf">
+            <p>ID: ${manager.getId()}</p>
+            <p><a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
+            <p>Office Number ${manager.getOfficeNumber()}</p>
+        </div>    
+    </div>
+</div>`
+
+
+
+
+genHTML.cardArray.push(htmlManagerCardElement);
 
 }
 
