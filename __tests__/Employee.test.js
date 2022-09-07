@@ -1,10 +1,15 @@
-const Employee = require('../lib/Employee');
+import Employee from '../lib/Employee.js';
 
 
-describe('Employee Information Test', () {
+describe('Employee Information Test', () => {
     describe('Gathering of employees name', () => {
         it('should return a string with employees name', () => {
-            const newEmployee = new Employee();
+            const newEmpName = new Employee();
+            const name = "ManagerName";
+
+            const genEmpName = newEmpName.getName(name);
+
+            expect(genEmpName).toBe("string");
         })
     })
 });
