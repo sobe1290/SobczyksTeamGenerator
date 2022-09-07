@@ -9,7 +9,7 @@ describe('Employee Information Test', () => {
 
             const genEmpName = newEmpName.getName(name);
 
-            expect(genEmpName).toBe("string");
+            expect(genEmpName).toEqual("string");
         })
     })
 });
