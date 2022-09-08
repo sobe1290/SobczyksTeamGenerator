@@ -85,4 +85,4 @@
 
   
 
-  An example output has been added to the repo. "dist/Example Output.png" is the example output. See below screenshot.
+  An example output has been added to the repo. "dist/Example Output.png" is the example output screenshot. "dist/generated.html" is the example html file output. See below screenshot.
