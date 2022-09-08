@@ -86,3 +86,6 @@
   
 
   An example output has been added to the repo. "dist/Example Output.png" is the example output screenshot. "dist/generated.html" is the example html file output. See below screenshot.
+  ![Example Output](https://user-images.githubusercontent.com/26222624/189245346-deaf1a90-1447-41e3-875e-f6472045ffc9.png)
+
+  
