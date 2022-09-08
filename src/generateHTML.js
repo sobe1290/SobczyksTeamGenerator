@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 
+//This is the html frame work that will be added to the generated page, to link with the style sheet.
 export const htmlHeadTag = `
 <!DOCTYPE html>
 <html>
@@ -24,8 +25,10 @@ export const htmlBodyContentClosingTag = `
 </body>
 </html>`;
 
+//This is an empty array that will be filled with the amount of cards that are generated.
 export const cardArray = [];
 
+//This is a function that will take the cards and insert them into the html.
 export function generateHTML () {
   let stringyCards = cardArray.join();
   const htmlString = `${htmlHeadTag}${htmlBodyContentOpenTag}${stringyCards}${htmlBodyContentClosingTag}`; 

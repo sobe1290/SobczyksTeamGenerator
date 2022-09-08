@@ -1,5 +1,6 @@
 import Manager from '../lib/Manager.js';
 
+//These unit tests are to test the class, class constructors, and methods of the Manager Class
 describe('Manager Class Card Test', () => {
     describe('Office Number Constructor', () => {
         it('Should set the office number ', () => {

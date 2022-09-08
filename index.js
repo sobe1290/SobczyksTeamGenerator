@@ -4,7 +4,7 @@ import Manager from './lib/Manager.js';
 import Intern from './lib/Intern.js';
 import Engineer from './lib/Engineer.js';
 
-
+//These are the questions that will be asked, based on the type of employee
 const managerQuestions = [  
   {
     type: 'input',
@@ -19,12 +19,12 @@ const managerQuestions = [
   {
     type: 'input',
     name: 'Member_Email',
-    message: 'What is the Email address of the Manager of this Team?',
+    message: 'What is the Email address of the Manager of this team?',
     },
   {
     type: 'input',
     name: 'Member_Office',
-    message: 'What is the office number of the Manager of this Team?',
+    message: 'What is the office number of the Manager of this team?',
   },
   {
     type: 'list',
@@ -92,6 +92,7 @@ const internQuestions = [
     },
 ];
 
+//This is a function that will let a user choose their next action
 function nextRole (answers) {
   if (answers.Member_Role === 'Engineer') {
     engineerAsk();
@@ -102,6 +103,7 @@ function nextRole (answers) {
   };
 };
 
+//This is a function that will tell inquirer what questions to run if Engineer was selected
 function engineerAsk () {
   inquirer
     .prompt(engineerQuestions)
@@ -111,6 +113,7 @@ function engineerAsk () {
     });
 };
 
+//This is a function that will tell inquirer what questions to run if Intern was selected
 function internAsk () {
   inquirer
     .prompt(internQuestions)
@@ -120,6 +123,7 @@ function internAsk () {
     });
 };
 
+//This is a function that will take the answers from the Engineer questions and format them into the class and then into an HTML card
 function generateEngineerCard (answers) {
   let name = answers.Member_Name;
   let id = answers.Member_Id;
@@ -143,6 +147,7 @@ function generateEngineerCard (answers) {
   genHTML.cardArray.push(htmlEngineerCardElement);
 };
 
+//This is a function that will take the answers from the Intern questions and format them into the class and then into an HTML card
 function generateInternCard (answers) {
   let name = answers.Member_Name;
   let id = answers.Member_Id;
@@ -166,6 +171,7 @@ function generateInternCard (answers) {
   genHTML.cardArray.push(htmlInternCardElement);
 };
 
+//This is a function that will take the answers from the Manager questions and format them into the class and then into an HTML card
 function generateManagerCard (answers) {
   let name = answers.Member_Name;
   let id = answers.Member_Id;
@@ -189,6 +195,7 @@ function generateManagerCard (answers) {
   genHTML.cardArray.push(htmlManagerCardElement);
 };
 
+//This is the initial inquirer prompt that will run, which starts with Manager questions
 inquirer
   .prompt(managerQuestions)
   .then(answers => {

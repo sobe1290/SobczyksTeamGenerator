@@ -1,5 +1,6 @@
 import Intern from '../lib/Intern.js';
 
+//These unit tests are to test the class, class constructors, and methods of the Intern Class
 describe('Intern Class Card Test', () => {
     describe('School Constructor', () => {
         it('Should set the school', () => {

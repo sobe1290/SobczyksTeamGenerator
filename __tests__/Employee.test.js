@@ -1,6 +1,6 @@
 import Employee from '../lib/Employee.js';
 
-
+//These unit tests are to test the class, class constructors, and methods of the Employee class
 describe('Employee Class Card Test', () => {
     describe('Employee Class Object Test', () => {
         it('Should return an object', () => {

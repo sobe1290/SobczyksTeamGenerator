@@ -1,5 +1,6 @@
 import Engineer from '../lib/Engineer.js';
 
+//These unit tests are to test the class, class constructors, and methods of the Engineer Class
 describe('Engineer Class Card Test', () => {
     describe('Github Constructor', () => {
         it('Should set the github', () => {
