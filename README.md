@@ -85,4 +85,4 @@
 
   
 
-  An example output has been added to the repo. "____" is the example output.
+  An example output has been added to the repo. "dist/Example Output.png" is the example output. See below screenshot.
