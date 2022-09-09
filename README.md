@@ -83,6 +83,10 @@
 
   Here is a link to a video walkthrough of how to use it:
 
+  https://watch.screencastify.com/v/7TLjtbDHQfO5zCBDBDHn
+
+  https://drive.google.com/file/d/1OazGIy-Z8ROmDA5dZHjqWmcc3_i_P7R8/view
+
   
 
   An example output has been added to the repo. "dist/Example Output.png" is the example output screenshot. "dist/generated.html" is the example html file output. See below screenshot.
